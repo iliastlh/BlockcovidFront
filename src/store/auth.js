@@ -3,16 +3,21 @@ import axios from "axios";
 export default {
   namespaced: true,
   state: {
-    userData: null
+    userData: null,
+    qrData:null
   },
 
   getters: {
-    user: state => state.userData
+    user: state => state.userData,
+    qr: state =>state.qrData
   },
 
   mutations: {
     setUserData(state, user) {
       state.userData = user;
+    },
+    setQrData(state, qr){
+      state.qrData = qr;
     }
   },
 
@@ -72,6 +77,14 @@ export default {
         .then(() => {
           dispatch("getUserData");
         });
+    },
+    sendDataQRCodeRequest({commit}) {
+      return axios
+        .get("https://g10-blockcovid-api-staging.herokuapp.com/api/medecins/qr-code")
+        .then(response => {
+          commit("setQrData", response.data);
+          alert(response.data.message);
+        })
     }
   }
 };
