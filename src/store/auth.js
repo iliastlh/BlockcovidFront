@@ -34,7 +34,7 @@ export default {
         .then(response => {
           commit("setUserData", response.data.user);
           localStorage.setItem("authToken", response.data.token.token);
-          alert(response.data.createur_de_qr);
+          alert(response.data.message);
         });
     },
     sendRegisterRequest({ commit }, data) {
@@ -42,7 +42,7 @@ export default {
       return axios
         .post("https://g10-blockcovid-api-staging.herokuapp.com/api/medecins/inscription", data)
         .then(response => {
-          commit("setUserData", response.data.createur_de_qr[0]);
+          commit("setUserData", response.data.createur_de_qr);
           localStorage.setItem("authToken", response.data.token);
           alert(response.data.message);
         });
@@ -53,8 +53,8 @@ export default {
         .post("https://g10-blockcovid-api-staging.herokuapp.com/api/etablissements/inscription",data)
         .then(response => {
           commit("setUserData", response.data.createur_de_qr);
-          localStorage.setItem("authToken", response.data.token);
-          alert(response.data);
+          localStorage.setItem("authToken", response.data.token.token);
+          alert(response.data.message);
         });
     },
     sendLogoutRequest({ commit }) {
