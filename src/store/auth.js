@@ -54,7 +54,7 @@ export default {
         .then(response => {
           commit("setUserData", response.data.createur_de_qr);
           localStorage.setItem("authToken", response.data.token);
-          alert(response.data.message);
+          alert(response.data);
         });
     },
     sendLogoutRequest({ commit }) {
