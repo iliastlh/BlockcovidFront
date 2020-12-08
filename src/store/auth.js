@@ -34,7 +34,7 @@ export default {
         .then(response => {
           commit("setUserData", response.data.user);
           localStorage.setItem("authToken", response.data.token.token);
-          alert(response.data.message);
+          alert(response.data.createur_de_qr.type_createur);
         });
     },
     sendRegisterRequest({ commit }, data) {
@@ -52,7 +52,7 @@ export default {
       return axios
         .post("https://g10-blockcovid-api-staging.herokuapp.com/api/etablissements/inscription",data)
         .then(response => {
-          commit("setUserData", response.data.createur_de_qr);
+          commit("setUserData", response.data.createur_de_qr.type_createur);
           localStorage.setItem("authToken", response.data.token.token);
           alert(response.data.message);
         });
