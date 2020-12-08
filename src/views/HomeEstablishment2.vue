@@ -15,8 +15,7 @@
 import { mapGetters} from "vuex";
 
 export default {
-  name: "Home",
-
+  name: "HomeEstablishment2",
   data() {
     return {
       success: null,

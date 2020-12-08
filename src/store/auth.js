@@ -3,16 +3,21 @@ import axios from "axios";
 export default {
   namespaced: true,
   state: {
-    userData: null
+    userData: null,
+    qrData:null
   },
 
   getters: {
-    user: state => state.userData
+    user: state => state.userData,
+    qr: state =>state.qrData
   },
 
   mutations: {
     setUserData(state, user) {
       state.userData = user;
+    },
+    setQrData(state, qr){
+      state.qrData = qr;
     }
   },
 
@@ -24,7 +29,7 @@ export default {
           commit("setUserData", response.data);
         })
         .catch(() => {
-          localStorage.removeItem("authToken");
+          //localStorage.removeItem("authToken");
         });
     },
     sendLoginRequest({ commit }, data) {
@@ -32,9 +37,16 @@ export default {
       return axios
         .post("https://g10-blockcovid-api-staging.herokuapp.com/api/connexion", data)
         .then(response => {
-          commit("setUserData", response.data.user);
-          localStorage.setItem("authToken", response.data.token.token);
-          alert(response.data.createur_de_qr.type_createur);
+          //commit("setUserData", response.data.user); 
+          const authUser = {} // <-- objet user avec les info + token
+          authUser.id_createur_de_qr = response.data.createur_de_qr.id_createur_qr
+          authUser.authToken = response.data.token.token
+          authUser.email = response.data.createur_de_qr.email
+          authUser.type_createur = response.data.createur_de_qr.type_createur
+          window.localStorage.setItem('authUser', JSON.stringify(authUser))
+          alert(response.data.message);
+          commit("setUserData", authUser);
+
         });
     },
     sendRegisterRequest({ commit }, data) {
@@ -72,6 +84,14 @@ export default {
         .then(() => {
           dispatch("getUserData");
         });
+    },
+    sendDataQRCodeRequest({commit}) {
+      return axios
+        .get("https://g10-blockcovid-api-staging.herokuapp.com/api/medecins/qr-code")
+        .then(response => {
+          commit("setQrData", response.data);
+          alert(response.data.message);
+        })
     }
   }
 };

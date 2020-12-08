@@ -52,6 +52,20 @@ const routes = [
     props: true,
     component: () =>
       import(/* webpackChunkName: "verify" */ "../views/Auth/Verify.vue")
+  },
+  {
+    path: "/homeDoctor",
+    name: "HomeDoctor",
+    beforeEnter: guest,
+    component: () =>
+      import(/* webpackChunkName: "homeDoctor" */ "../views/Auth/HomeDoctor.vue")
+  },
+  {
+    path: "/homeEstablishment",
+    name: "HomeEstablishment",
+    beforeEnter: auth,
+    component: () =>
+      import(/* webpackChunkName: "homeDoctor" */ "../views/Auth/HomeDoctor.vue")
   }
 ];
 
