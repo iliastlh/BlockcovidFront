@@ -1,5 +1,8 @@
 <template>
   <div class="home mt-5">
+
+    <img alt="Vue logo" src="/../../assets/BlockCovid.png">
+        
     <div class="alert alert-success" role="alert" v-if="success">
       {{ success }}
     </div>
@@ -13,6 +16,10 @@
     </h2>
 
 
+<iframe src="http://www.google.com/actualites"
+        frameborder="0" width="300" height="250"
+        marginwidth="0" marginheight="0">
+</iframe>
   </div>
 </template>
 
@@ -38,3 +45,9 @@ export default {
   }
 };
 </script>
+
+<style>
+.mt-0{
+margin-right: 50;
+}
+</style>
