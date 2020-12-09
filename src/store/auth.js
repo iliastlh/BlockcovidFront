@@ -24,10 +24,14 @@ export default {
   actions: {
     getUserData({ commit }) {
       axios
-        .get(process.env.VUE_APP_API_URL + "user")
+        .get(process.env.VUE_APP_API_URL + "connexion-token", {
+            headers: {
+                'Authorization': 'Bearer ' + localStorage.getItem('authToken'),
+            }
+        })
         .then(response => {
-          alert("blalblaba");
-          commit("setUserData", response.data);
+        //   alert("blalblaba");
+          commit("setUserData", response.data.info_supplementaire);
         })
         .catch(() => {
           //localStorage.removeItem("authUser");
@@ -44,7 +48,8 @@ export default {
           authUser.authToken = response.data.token.token
           authUser.email = response.data.createur_de_qr.email
           authUser.type_createur = response.data.createur_de_qr.type_createur
-          window.localStorage.setItem('authUser', JSON.stringify(authUser))
+        //   window.localStorage.setItem('authUser', JSON.stringify(authUser))
+          localStorage.setItem("authToken", response.data.token.token)
           alert(response.data.message);
           commit("setUserData", authUser);
 
@@ -56,7 +61,7 @@ export default {
         .post("https://g10-blockcovid-api-staging.herokuapp.com/api/medecins/inscription", data)
         .then(response => {
           commit("setUserData", response.data.createur_de_qr);
-          localStorage.setItem("authToken", response.data.token);
+          localStorage.setItem("authToken", response.data.token.token);
           alert(response.data.message);
         });
     },
@@ -65,7 +70,7 @@ export default {
       return axios
         .post("https://g10-blockcovid-api-staging.herokuapp.com/api/etablissements/inscription",data)
         .then(response => {
-          commit("setUserData", response.data.createur_de_qr.type_createur);
+          commit("setUserData", response.data.createur_de_qr);
           localStorage.setItem("authToken", response.data.token.token);
           alert(response.data.message);
         });
