@@ -170,14 +170,6 @@ Les discothèques et dancings de ces hébergements doivent, à ce stade, rester 
 
 </div>
 
-<div id ="Marche">
-<h3>Marchés et activités ambulantes</h3>
-         <p class="font-weight-normal">
-         
-         
-         </p>
-
-</div>
 <div id ="entreprise">
 <h3>Entreprises de services aux consommateurs</h3>
          <p class="font-weight-normal">

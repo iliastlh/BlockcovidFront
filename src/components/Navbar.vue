@@ -43,6 +43,13 @@
             </li>
             <li class="nav-item" v-if="user && user.type_createur === 'E'">
               <router-link class="nav-link" to="/homeEstablishementCodes">Codes Générés</router-link>
+              
+            </li>
+            <li class="nav-item" v-if="user && user.type_createur === 'E'">
+            <a class="nav-link" href="https://drive.google.com/file/d/1Alqh4Ni_ItDE2VDgPCBJOSar4cxHFsiW/view" target="_blank">Affiches de commerce obligatoires</a>
+            </li>
+               <li class="nav-item" v-if="user && user.type_createur === 'E'">
+            <a class="nav-link" href="https://economie.fgov.be/sites/default/files/Files/Publications/files/coronavirus-guide-ouverture-commerces.pdf" target="_blank">Guide Ouverture des Commerces</a>
             </li>
             <li class="nav-item" v-show="user">
               <a class="nav-link" href="#" @click="logout">Se déconnecter</a>
