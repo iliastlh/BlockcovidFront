@@ -2,11 +2,19 @@
     <div id = "app">
         <form v-on:submit.prevent>
             <div class="form-group">
-                <label for="email">Description</label>
+                <label for="email">Nom du lieu</label>
                 <input
                 type="text"
                 class="form-control"
                 id="name"
+                v-model="details.nom"
+                placeholder="Entrez le nom"
+                />
+                <label for="email">Description</label>
+                <input
+                type="text"
+                class="form-control"
+                id="description"
                 v-model="details.description"
                 placeholder="Entrez la description"
                 />
@@ -28,7 +36,8 @@
             return{
                 id_qr :'',
                 details : {
-                    description: ''
+                    description: '',
+                    nom: ''
                 }
             }
         },
