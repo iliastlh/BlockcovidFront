@@ -68,7 +68,13 @@ const routes = [
     beforeEnter: auth,
     component: () =>
     import(/* webpackChunkName: "homeEstablishmentCodes" */ "../views/Auth/HomeEstablishmentCodes.vue")
-  }
+  },{
+    path: "/coronaAdvice",
+    name: "CoronaAdvice",
+    beforeEnter: guest,
+    component: () =>
+      import(/* webpackChunkName: "login" */ "../views/Auth/CoronaAdvice.vue")
+  },
 ];
 
 const router = new VueRouter({
