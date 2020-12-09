@@ -1,25 +1,26 @@
 <template>
     <div class="card-deck justify-content-center">
         <div v-for="code in codes" v-bind:key="code.id" class="pt-4" style="width: 18rem;">
-            <div class="card">
-                <VueQrCode :value="code.content" class="card-img-top"/>
-                <div class="card-body">
-                    <h5 class="card-title">{{ code.nom }}</h5>
-                    <p class="card-text">{{ code.description }}</p>
-                </div>
-            </div>
+            <QrCard :content="code.content"
+                    :title="code.title"
+                    :description="code.description"
+                    :id="code.id">
+            </QrCard>
         </div>
+        <h4 v-if="codes.length === 0" class="pt-4">
+            Aucun code généré.
+        </h4>
     </div>
 </template>
 
 <script>
-import VueQrCode from 'vue-qrcode';
 import { mapActions, mapGetters } from 'vuex';
+import QrCard from '@/components/QrCard';
 
 export default {
     name: 'HomeEstablishmentCodes',
     components: {
-        VueQrCode,
+        QrCard,
     },
     computed: {
         ...mapGetters('establishmentCodes', ['codes']),

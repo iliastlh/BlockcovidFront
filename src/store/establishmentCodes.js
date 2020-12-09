@@ -25,13 +25,17 @@ export default {
                         type_createur: 'E',
                         id_qr_code: qr.id_qr_etablissement,
                     }),
-                    // nom: qr.nom,
-                    // description: qr.description,
-                    nom: "Table 6",
-                    description: "Une table pour quatre personnes avec vue sur la mer.",
+                    id: qr.id_qr_etablissement,
+                    nom: qr.nom,
+                    description: qr.description,
                 };
             });
             commit('setCodes', qrCodes);
-        }
+        },
+        deleteCode: async ({ commit, state }, id) => {
+            await axios.delete("https://g10-blockcovid-api-staging.herokuapp.com/api/etablissements/qr-code/" + id);
+            const qrCodes = state.codes.filter(qr => qr.id !== id);
+            commit('setCodes', qrCodes);
+        },
     },
 };
