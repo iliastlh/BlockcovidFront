@@ -1,8 +1,6 @@
 <template>
 <div>
-    <br>
     <h2>Informations utiles pour les différents secteur d'activités </h2>
-    <br>
 <div class="list-group">
   <a href="#Principes" class="list-group-item list-group-item-action active">Principes generaux  </a>
   <a href="#Legal" class="list-group-item list-group-item-action">Commerces, magasins, professions libérales et classes moyennes
@@ -55,7 +53,8 @@ Sur le lien de travail, les mesures reprises dans le « Guide générique en vue
 </ul>
 </div>
 <div id="Legal">
-    <div>
+    <br>
+    <div id="test">
     <h3> Commerces, magasins, professions libérales et classes moyennes</h3>
      <p class="font-weight-normal">
 Les entreprises et associations offrant des biens et des services aux consommateurs sont ouvertes au public. Elles peuvent également poursuivre leurs activités au moyen de livraisons ou d'un système de rendez-vous pour collecter les biens commandés préalablement, dans le respect des règles minimales de sécurité évoquées ci-dessus.

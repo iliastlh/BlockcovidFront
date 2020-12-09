@@ -71,7 +71,6 @@ const routes = [
   },{
     path: "/coronaAdvice",
     name: "CoronaAdvice",
-    beforeEnter: guest,
     component: () =>
       import(/* webpackChunkName: "login" */ "../views/Auth/CoronaAdvice.vue")
   },

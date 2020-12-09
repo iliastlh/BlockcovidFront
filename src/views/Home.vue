@@ -14,6 +14,8 @@
         <h2 v-else>Vous êtes un établissement.</h2>
     </div>
     <h2 v-else>Bienvenue, veuillez vous identifier ou vous inscrire.</h2>
+    <a href="https://drive.google.com/file/d/1Alqh4Ni_ItDE2VDgPCBJOSar4cxHFsiW/view" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Affiches à Imprimer</a>
+<a href="https://economie.fgov.be/sites/default/files/Files/Publications/files/coronavirus-guide-ouverture-commerces.pdf" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Guide pour l'ouverture des commerces</a>
     <ActualityFeed />
 </div>
 </template>
