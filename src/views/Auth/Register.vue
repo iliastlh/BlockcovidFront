@@ -7,12 +7,12 @@
       <div class="card-body">
         <form>
           <div class="form-group">
-            <label for="email">Nom</label>
+            <label for="nom">Nom</label>
             <input
               type="text"
               class="form-control"
               :class="{ 'is-invalid': errors.nom }"
-              id="name"
+              id="nom"
               v-model="details.nom"
               placeholder="Entrer votre nom"
             />
@@ -21,12 +21,12 @@
             </div>
           </div>
           <div class="form-group">
-            <label for="email">Prenom</label>
+            <label for="prenom">Prenom</label>
             <input
               type="text"
               class="form-control"
               :class="{ 'is-invalid': errors.prenom }"
-              id="name"
+              id="prenom"
               v-model="details.prenom"
               placeholder="Entrer votre prenom"
             />
@@ -35,17 +35,17 @@
             </div>
           </div>
           <div class="form-group">
-            <label for="email">Telephone</label>
+            <label for="telephone">Telephone</label>
             <input
               type="text"
               class="form-control"
-              :class="{ 'is-invalid': errors.telephone }"
-              id="name"
+              :class="{ 'is-invalid': errors.numero }"
+              id="telephone"
               v-model="details.numero"
               placeholder="entrer votre no de telephone"
             />
-            <div class="invalid-feedback" v-if="errors.telephone">
-              {{ errors.name[0] }}
+            <div class="invalid-feedback" v-if="errors.numero">
+              {{ errors.numero[0] }}
             </div>
           </div>
           <div class="form-group">
@@ -67,13 +67,13 @@
             <input
               type="password"
               class="form-control"
-              :class="{ 'is-invalid': errors.motDePasse }"
+              :class="{ 'is-invalid': errors.mot_de_passe }"
               id="password"
               v-model="details.mot_de_passe"
               placeholder="Password"
             />
-            <div class="invalid-feedback" v-if="errors.password">
-              {{ errors.password[0] }}
+            <div class="invalid-feedback" v-if="errors.mot_de_passe">
+              {{ errors.mot_de_passe[0] }}
             </div>
           </div>
           <div class="form-group">
@@ -81,10 +81,14 @@
             <input
               type="password"
               class="form-control"
+              :class="{ 'is-invalid': errors.mot_de_passe_confirmation }"
               id="password_confirmation"
               v-model="details.mot_de_passe_confirmation"
               placeholder="Confirm password"
             />
+            <div class="invalid-feedback" v-if="errors.mot_de_passe_confirmation">
+              {{ errors.mot_de_passe_confirmation[0] }}
+            </div>
           </div>
           <button type="button" @click="register" class="btn btn-primary">
             Inscription
