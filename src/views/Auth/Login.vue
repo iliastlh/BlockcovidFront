@@ -25,7 +25,7 @@
             <input
               type="password"
               class="form-control"
-              :class="{ 'is-invalid': errors.password }"
+              :class="{ 'is-invalid': errors.mot_de_passe }"
               id="password"
               v-model="details.mot_de_passe"
               placeholder="Password"
