@@ -1,7 +1,8 @@
 <template>
   <div id="app">
     <header>
-      <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+
+      <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark" v-show="testNavBar"> 
         <router-link class="navbar-brand" to="/">BlockCovid19.be</router-link>
         <button
           class="navbar-toggler"
@@ -49,11 +50,12 @@
 import { mapGetters, mapActions } from "vuex";
 
 export default {
+  props:["testNavBar"],
   computed: {
     ...mapGetters("auth", ["user"])
   },
 
-  beforeMount() {
+  created() {
     if(localStorage.getItem("authToken")) {
       this.getUserData();
     }
