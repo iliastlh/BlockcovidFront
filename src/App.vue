@@ -32,6 +32,10 @@
                 >Inscription établissement</router-link
               >
             </li>
+            <li class="nav-item" v-if="user">
+              <router-link v-if="user.type_createur === 'M'" class="nav-link" to="/homeDoctor">Générer QR Code</router-link>
+              <router-link v-if="user.type_createur === 'E'" class="nav-link" to="/homeEstablishment">Générer QR Code</router-link>
+            </li>
             <li class="nav-item" v-show="user">
               <a class="nav-link" href="#" @click="logout">Logout</a>
             </li>

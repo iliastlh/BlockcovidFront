@@ -103,6 +103,19 @@ export default {
           localStorage.setItem("qrCode", response.data.id_qr_code)
           alert(response.data.message);
         })
+    },
+    sendDataQRCodeEstablishmentRequest(data) {
+      return axios
+        .post("etablissements/qr-code",data ,{
+          headers: {
+            'Authorization' : 'Bearer ' + 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9nMTAtYmxvY2tjb3ZpZC1hcGktc3RhZ2luZy5oZXJva3VhcHAuY29tXC9hcGlcL2Nvbm5leGlvbiIsImlhdCI6MTYwNzQ3NjI1MiwiZXhwIjoxNjA4MDgxMDUyLCJuYmYiOjE2MDc0NzYyNTIsImp0aSI6IlZleDlGd2I2dHYwWHdlUmUiLCJzdWIiOiIwM2YyMjcxYS1jZGEyLTRkMjEtYTAxMy04NzViN2ZmZDUyMTkiLCJwcnYiOiJiMzUzODE0OWI1MzVhZjVhZThlYjFlNjdjOWIxYWIxMWUzNzY0ZGI0In0.9IRAI_KnzovYYnYGS7NDTpi3cZ6vfmR_n7NFKuXiA2Q'
+          }
+        })
+        .then(response => {
+          console.log(response.data.id_qr_code)
+          localStorage.setItem("qrCode", response.data.id_qr_code)
+          alert(response.data.message);
+        })
     }
   }
 };
