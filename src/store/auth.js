@@ -24,17 +24,18 @@ export default {
   actions: {
     getUserData({ commit }) {
       axios
-        .get(process.env.VUE_APP_API_URL + "connexion-token", {
+        .get("https://g10-blockcovid-api-staging.herokuapp.com/api/connexion-token", {
             headers: {
                 'Authorization': 'Bearer ' + localStorage.getItem('authToken'),
             }
         })
         .then(response => {
-        //   alert("blalblaba");
-          commit("setUserData", response.data.info_supplementaire);
+          console.log(response);
+          commit("setUserData", response.data.createur_de_qr);
         })
-        .catch(() => {
-          //localStorage.removeItem("authUser");
+        .catch((e) => {
+            console.log(e);
+          localStorage.removeItem("authToken");
         });
     },
     sendLoginRequest({ commit }, data) {
@@ -78,7 +79,7 @@ export default {
     sendLogoutRequest({ commit }) {
       //axios.post("https://g10-blockcovid-api-staging.herokuapp.com/api/deconnexion").then(() => {
         commit("setUserData", null);
-        localStorage.removeItem("authUser");
+        localStorage.removeItem("authToken");
       //});
     },
     /*sendVerifyResendRequest() {

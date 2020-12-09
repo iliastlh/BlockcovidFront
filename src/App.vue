@@ -24,8 +24,7 @@
             </li>
             <li class="nav-item" v-show="!user">
               <router-link class="nav-link" to="/register"
-                >Inscription Medecin</router-link
-              >
+                >Inscription Medecin</router-link>
             </li>
              <li class="nav-item" v-show="!user">
               <router-link class="nav-link" to="/registerEstablishment"
@@ -68,6 +67,7 @@ export default {
     ...mapActions("auth", ["sendLogoutRequest", "getUserData"]),
 
     logout() {
+        console.log("login out");
       this.sendLogoutRequest();
       this.$router.push("/");
     }

@@ -7,14 +7,14 @@ Vue.use(VueRouter);
  //const user = mapGetters("auth", ["user"]);
 
 const guest = (to, from, next) => {
-  if (!localStorage.getItem("authUser")) {
+  if (!localStorage.getItem("authToken")) {
     return next();
   } else {
     return next("/");
   }
 };
 const auth = (to, from, next) => {
-  if (localStorage.getItem("authUser")) {
+  if (localStorage.getItem("authToken")) {
     return next();
   } else {
     return next("/login");
