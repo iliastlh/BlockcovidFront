@@ -88,7 +88,11 @@ export default {
     },*/
     sendDataQRCodeRequest({commit}) {
       return axios
-        .get("https://g10-blockcovid-api-staging.herokuapp.com/api/medecins/qr-code")
+        .get("https://g10-blockcovid-api-staging.herokuapp.com/api/medecins/qr-code",{
+          headers: {
+            'Authorization' : 'Bearer ' + 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9nMTAtYmxvY2tjb3ZpZC1hcGktc3RhZ2luZy5oZXJva3VhcHAuY29tXC9hcGlcL2Nvbm5leGlvbiIsImlhdCI6MTYwNzQ3NjI1MiwiZXhwIjoxNjA4MDgxMDUyLCJuYmYiOjE2MDc0NzYyNTIsImp0aSI6IlZleDlGd2I2dHYwWHdlUmUiLCJzdWIiOiIwM2YyMjcxYS1jZGEyLTRkMjEtYTAxMy04NzViN2ZmZDUyMTkiLCJwcnYiOiJiMzUzODE0OWI1MzVhZjVhZThlYjFlNjdjOWIxYWIxMWUzNzY0ZGI0In0.9IRAI_KnzovYYnYGS7NDTpi3cZ6vfmR_n7NFKuXiA2Q'
+          }
+        })
         .then(response => {
           commit("setQrData", response.data);
           alert(response.data.message);

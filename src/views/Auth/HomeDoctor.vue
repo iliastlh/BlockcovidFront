@@ -10,7 +10,7 @@
 
 <script>
     import VueQrcode from 'vue-qrcode'
-    import { mapActions } from "vuex";
+    import { mapActions, mapGetters} from "vuex";
 
     
     export default {
@@ -24,15 +24,15 @@
         components: {
             VueQrcode,
         },
+        computed:{
+            ...mapGetters("auth", ["qr"])
+
+        },
         methods: {
             ...mapActions("auth", ["sendDataQRCodeRequest"]),
 
             generate: function () {
-
-                this.sendDataQRCodeRequest().then( response => {
-                    console.log("Yvan")
-                    this.id_qr = response.data;
-                });                
+                this.sendDataQRCodeRequest();
             },
             print(){
                 this.$htmlToPaper('qr');
