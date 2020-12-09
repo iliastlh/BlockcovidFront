@@ -60,7 +60,14 @@ const routes = [
     name: "HomeEstablishment",
     beforeEnter: auth,
     component: () =>
-      import(/* webpackChunkName: "homeDoctor" */ "../views/Auth/HomeEstablishment.vue")
+      import(/* webpackChunkName: "homeEstablishment" */ "../views/Auth/HomeEstablishment.vue")
+  },
+  {
+    path: "/homeEstablishementCodes",
+    name: "HomeEstablishmentCodes",
+    beforeEnter: auth,
+    component: () =>
+    import(/* webpackChunkName: "homeEstablishmentCodes" */ "../views/Auth/HomeEstablishmentCodes.vue")
   }
 ];
 

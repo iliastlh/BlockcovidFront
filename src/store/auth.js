@@ -24,11 +24,7 @@ export default {
   actions: {
     getUserData({ commit }) {
       axios
-        .get("https://g10-blockcovid-api-staging.herokuapp.com/api/connexion-token", {
-            headers: {
-                'Authorization': 'Bearer ' + localStorage.getItem('authToken'),
-            }
-        })
+        .get("https://g10-blockcovid-api-staging.herokuapp.com/api/connexion-token")
         .then(response => {
           console.log(response);
           commit("setUserData", response.data.createur_de_qr);

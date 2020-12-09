@@ -1,6 +1,6 @@
 <template>
 <div class="home mt-5 d-flex flex-column align-items-center">
-    <img alt="Vue logo" src="/../../assets/BlockCovid.png">
+    <img alt="BlockCovid logo" src="/../../assets/BlockCovid.png">
         
     <div class="alert alert-success" role="alert" v-if="success">
         {{ success }}
