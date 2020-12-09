@@ -1,17 +1,20 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
+//import { mapGetters } from "vuex";
 
 Vue.use(VueRouter);
 
+ //const user = mapGetters("auth", ["user"]);
+
 const guest = (to, from, next) => {
-  if (!localStorage.getItem("authToken")) {
+  if (!localStorage.getItem("authUser")) {
     return next();
   } else {
     return next("/");
   }
 };
 const auth = (to, from, next) => {
-  if (localStorage.getItem("authToken")) {
+  if (localStorage.getItem("authUser")) {
     return next();
   } else {
     return next("/login");
@@ -46,17 +49,9 @@ const routes = [
       import(/* webpackChunkName: "registerEstablishment" */ "../views/Auth/RegisterEstablishment.vue")
   },
   {
-    path: "/verify/:hash",
-    name: "Verify",
-    beforeEnter: auth,
-    props: true,
-    component: () =>
-      import(/* webpackChunkName: "verify" */ "../views/Auth/Verify.vue")
-  },
-  {
     path: "/homeDoctor",
     name: "HomeDoctor",
-    beforeEnter: guest,
+    beforeEnter: auth,
     component: () =>
       import(/* webpackChunkName: "homeDoctor" */ "../views/Auth/HomeDoctor.vue")
   },
@@ -65,7 +60,7 @@ const routes = [
     name: "HomeEstablishment",
     beforeEnter: auth,
     component: () =>
-      import(/* webpackChunkName: "homeDoctor" */ "../views/Auth/HomeDoctor.vue")
+      import(/* webpackChunkName: "homeDoctor" */ "../views/Auth/HomeEstablishment.vue")
   }
 ];
 

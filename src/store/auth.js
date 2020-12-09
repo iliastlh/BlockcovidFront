@@ -26,10 +26,11 @@ export default {
       axios
         .get(process.env.VUE_APP_API_URL + "user")
         .then(response => {
+          alert("blalblaba");
           commit("setUserData", response.data);
         })
         .catch(() => {
-          //localStorage.removeItem("authToken");
+          //localStorage.removeItem("authUser");
         });
     },
     sendLoginRequest({ commit }, data) {
@@ -70,12 +71,12 @@ export default {
         });
     },
     sendLogoutRequest({ commit }) {
-      axios.post("https://g10-blockcovid-api-staging.herokuapp.com/api/deconnexion").then(() => {
+      //axios.post("https://g10-blockcovid-api-staging.herokuapp.com/api/deconnexion").then(() => {
         commit("setUserData", null);
-        localStorage.removeItem("authToken");
-      });
+        localStorage.removeItem("authUser");
+      //});
     },
-    sendVerifyResendRequest() {
+    /*sendVerifyResendRequest() {
       return axios.get(process.env.VUE_APP_API_URL + "email/resend");
     },
     sendVerifyRequest({ dispatch }, hash) {
@@ -84,7 +85,7 @@ export default {
         .then(() => {
           dispatch("getUserData");
         });
-    },
+    },*/
     sendDataQRCodeRequest({commit}) {
       return axios
         .get("https://g10-blockcovid-api-staging.herokuapp.com/api/medecins/qr-code")

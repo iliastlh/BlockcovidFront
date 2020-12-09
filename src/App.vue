@@ -55,7 +55,7 @@ export default {
   },
 
   mounted() {
-    if (localStorage.getItem("authToken")) {
+    if (localStorage.getItem("authUser")) {
       this.getUserData();
     }
   },

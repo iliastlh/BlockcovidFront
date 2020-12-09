@@ -7,10 +7,11 @@
       {{ error }}
     </div>
     <h2 v-if="!user">Welcome, please log in or register</h2>
-    <h2 v-else>Hello, {{ user.email }}! You're in.</h2>
-
+    <h2 v-else>Hello, {{ user.email }}! You're in.
       <h2 v-if="user.type_createur === 'M'">Vous etes un medecin</h2>
     <h2 v-else>Vous etes un établissement.</h2>
+    </h2>
+
 
   </div>
 </template>
