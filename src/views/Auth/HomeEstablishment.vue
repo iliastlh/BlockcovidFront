@@ -1,50 +1,25 @@
 <template>
-    <form v-on:submit.prevent>
-        <div class="form-group">
-            <label for="email">Description</label>
-            <input
-              type="text"
-              class="form-control"
-              id="name"
-              v-model="details.description"
-              placeholder="Entrez la description"
-            />
-            <button class="btn btn-primary btn-lg active mt-0"  type="button" v-on:click="generate" id="generate">Genérer un QRCode</button>
-            <div id="qrPrint">
-              <vue-qrcode id="qrcode" value="" v-model= "id_qr"/>
-            </div>
-            <button class="btn btn-primary btn-lg active mt-0" @click="print">Imprimez le QR Code</button>
-        </div>
-    </form>
+    <div class = "app">
+        <QrCodeGenerationEtablissementInfo />
+        <button class="btn btn-primary btn-lg active mt-0" @click="print">Imprimez le QR Code</button>
+    </div>
 </template>
 
 <script>
-    import VueQrcode from 'vue-qrcode';
-    import { mapActions} from "vuex";
+    import QrCodeGenerationEtablissementInfo from '../../components/QrCodeGenerationEtablissementInfo';
+
     
     export default {
         name: "HomeEstablishment",
 
         data() {
-            return {              
-                id_qr :'',
-                details : {
-                    description: ''
-                }
+            return {  
             }
         },
         components: {
-            VueQrcode,
+            QrCodeGenerationEtablissementInfo,
         },
         methods: {
-            ...mapActions("auth", ["sendDataQRCodeEstablishmentRequest"]),
-
-
-            generate: function () {
-              console.log("test_date = ", this.details);
-                this.sendDataQRCodeEstablishmentRequest(this.details);
-                this.id_qr = localStorage.getItem("qrCode");
-            },
             print(){
                 this.$htmlToPaper('qrPrint');
             }

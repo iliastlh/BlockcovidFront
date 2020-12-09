@@ -14,7 +14,7 @@
     export default {
         data(){
             return{
-                id_qr :''
+                id_qr :'',
             }
         },
         components: {
@@ -22,6 +22,7 @@
         },
         methods: {
             ...mapActions("auth", ["sendDataQRCodeRequest"]),
+
 
 
             generate: function () {

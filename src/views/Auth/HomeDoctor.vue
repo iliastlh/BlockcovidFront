@@ -14,7 +14,6 @@ import QrCodeGeneration from '../../components/QrCodeGeneration';
 
         data(){
             return{
-                id_qr :''
             }
         },
         components: {
