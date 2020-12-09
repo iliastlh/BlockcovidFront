@@ -72,6 +72,10 @@ export default {
     login: function() {
       this.sendLoginRequest(this.details).then(() => {
         this.$router.push({ name: "Home" });
+      }).catch(err => {
+          if(![401, 422].includes(err.response.status)) {
+              console.log(err);
+          }
       });
     }
   }

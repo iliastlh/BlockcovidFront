@@ -18,9 +18,8 @@ axios.interceptors.response.use(
       store.commit("auth/setUserData", null);
       localStorage.removeItem("authUser");
       router.push({ name: "Login" });
-    } else {
-      return Promise.reject(error);
     }
+    return Promise.reject(error);
   }
 );
 

@@ -43,17 +43,14 @@ export default {
       return axios
         .post("https://g10-blockcovid-api-staging.herokuapp.com/api/connexion", data)
         .then(response => {
-          //commit("setUserData", response.data.user); 
           const authUser = {} // <-- objet user avec les info + token
           authUser.id_createur_de_qr = response.data.createur_de_qr.id_createur_qr
           authUser.authToken = response.data.token.token
           authUser.email = response.data.createur_de_qr.email
           authUser.type_createur = response.data.createur_de_qr.type_createur
-        //   window.localStorage.setItem('authUser', JSON.stringify(authUser))
           localStorage.setItem("authToken", response.data.token.token)
           alert(response.data.message);
           commit("setUserData", authUser);
-
         });
     },
     sendRegisterRequest({ commit }, data) {
