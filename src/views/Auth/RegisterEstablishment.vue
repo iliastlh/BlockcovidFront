@@ -7,7 +7,7 @@
       <div class="card-body">
         <form>
           <div class="form-group">
-            <label for="email">Nom légal de votre établissement</label>
+            <label for="name">Nom légal de votre établissement</label>
             <input
               type="text"
               class="form-control"
@@ -21,12 +21,12 @@
             </div>
           </div>
           <div class="form-group">
-            <label for="email">Telephone</label>
+            <label for="telephone">Telephone</label>
             <input
               type="text"
               class="form-control"
               :class="{ 'is-invalid': errors.numero }"
-              id="name"
+              id="telephone"
               v-model="details.numero"
               placeholder="entrer votre no de telephone"
             />
@@ -49,12 +49,12 @@
             </div>
           </div>
            <div class="form-group">
-            <label for="email">Adresse de l'établissement</label>
+            <label for="adresse">Adresse de l'établissement</label>
             <input
               type="email"
               class="form-control"
               :class="{ 'is-invalid': errors.adresse }"
-              id="email"
+              id="adresse"
               v-model="details.adresse"
               placeholder="Entrer votre adresse"
             />
