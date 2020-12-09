@@ -1,6 +1,6 @@
 <template>
   <div class="home mt-5">
-      <h2> Actualité Coronavirus en temps réel</h2>
+      <h2> Actualité du Coronavirus en temps réel</h2>
 
 <div  id="widgetmain" 
  style="text-align:left;overflow-y:auto;overflow-x:hidden;width:1000px;background-color:#transparent; border:0px solid #0F0F0F;">

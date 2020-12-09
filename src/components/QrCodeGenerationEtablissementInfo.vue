@@ -8,7 +8,7 @@
                 class="form-control"
                 id="name"
                 v-model="details.nom"
-                placeholder="Entrez le nom"
+                placeholder="Entrez le nom du lieu"
                 />
                 <label for="email">Description</label>
                 <input
@@ -16,9 +16,9 @@
                 class="form-control"
                 id="description"
                 v-model="details.description"
-                placeholder="Entrez la description"
+                placeholder="Entrez la description du lieu"
                 />
-                <button class="btn btn-primary btn-lg active mt-0"  type="button" v-on:click="generate_esta" id="generate">Genérer un QRCode</button>
+                <button class="btn btn-primary btn-lg active mt-0"  type="button" v-on:click="generate_esta" id="generate">Générer un QRCode</button>
                 <div id="qrPrint">
                     <vue-qrcode id="qrcode" value="" v-model= "id_qr"/>
                 </div>

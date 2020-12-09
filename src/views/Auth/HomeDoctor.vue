@@ -1,7 +1,7 @@
 <template>
     <div id = "app">
         <QrCodeGeneration />
-        <button class="btn btn-primary btn-lg active mt-0"  @click="print">Imprimez le QR Code</button>
+        <button class="btn btn-primary btn-lg active mt-0"  @click="print">Imprimer le QR Code</button>
     </div>
 </template>
 

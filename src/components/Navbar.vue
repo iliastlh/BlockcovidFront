@@ -25,11 +25,11 @@
             </li>
             <li class="nav-item" v-show="!user">
               <router-link class="nav-link" to="/register"
-                >Inscription Medecin</router-link>
+                >Inscription Médécin</router-link>
             </li>
              <li class="nav-item" v-show="!user">
               <router-link class="nav-link" to="/registerEstablishment"
-                >Inscription établissement</router-link
+                >Inscription Établissement</router-link
               >
             </li>
             <li class="nav-item" v-if="user">
@@ -40,7 +40,7 @@
               <router-link class="nav-link" to="/homeEstablishementCodes">Codes Générés</router-link>
             </li>
             <li class="nav-item" v-show="user">
-              <a class="nav-link" href="#" @click="logout">Logout</a>
+              <a class="nav-link" href="#" @click="logout">Se déconnecter</a>
             </li>
           </ul>
         </div>
