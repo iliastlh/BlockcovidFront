@@ -14,14 +14,14 @@
               :class="{ 'is-invalid': errors.nom }"
               id="nom"
               v-model="details.nom"
-              placeholder="Entrer votre nom"
+              placeholder="Entrez votre nom"
             />
             <div class="invalid-feedback" v-if="errors.nom">
               {{ errors.nom[0] }}
             </div>
           </div>
           <div class="form-group">
-            <label for="prenom">Prenom</label>
+            <label for="prenom">Prénom</label>
             <input
               type="text"
               class="form-control"
@@ -35,14 +35,14 @@
             </div>
           </div>
           <div class="form-group">
-            <label for="telephone">Telephone</label>
+            <label for="telephone">Numéro de téléphone</label>
             <input
               type="text"
               class="form-control"
               :class="{ 'is-invalid': errors.numero }"
               id="telephone"
               v-model="details.numero"
-              placeholder="entrer votre no de telephone"
+              placeholder="Entrez votre numéro de téléphone"
             />
             <div class="invalid-feedback" v-if="errors.numero">
               {{ errors.numero[0] }}
@@ -56,7 +56,7 @@
               :class="{ 'is-invalid': errors.email }"
               id="email"
               v-model="details.email"
-              placeholder="Entrer votre email"
+              placeholder="Entrez votre email"
             />
             <div class="invalid-feedback" v-if="errors.email">
               {{ errors.email[0] }}
@@ -70,7 +70,7 @@
               :class="{ 'is-invalid': errors.mot_de_passe }"
               id="password"
               v-model="details.mot_de_passe"
-              placeholder="Password"
+              placeholder="Entrez un mot de passe"
             />
             <div class="invalid-feedback" v-if="errors.mot_de_passe">
               {{ errors.mot_de_passe[0] }}
@@ -84,7 +84,7 @@
               :class="{ 'is-invalid': errors.mot_de_passe_confirmation }"
               id="password_confirmation"
               v-model="details.mot_de_passe_confirmation"
-              placeholder="Confirm password"
+              placeholder="Entrez à nouveau le mot de passe"
             />
             <div class="invalid-feedback" v-if="errors.mot_de_passe_confirmation">
               {{ errors.mot_de_passe_confirmation[0] }}

@@ -9,11 +9,11 @@
         {{ error }}
     </div>
     <div v-if="user" class="text-center">
-        <h2>Hello, {{ user.email }}! You're in.</h2>
-        <h2 v-if="user.type_createur === 'M'">Vous êtes un médecin</h2>
+        <h2>Bonjour, {{ user.email }}!</h2>
+        <h2 v-if="user.type_createur === 'M'">Vous êtes un médecin.</h2>
         <h2 v-else>Vous êtes un établissement.</h2>
     </div>
-    <h2 v-else>Welcome, please log in or register</h2>
+    <h2 v-else>Bienvenue, veuillez vous identifier ou vous inscrire.</h2>
     <ActualityFeed />
 </div>
 </template>
