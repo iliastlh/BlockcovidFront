@@ -1,5 +1,5 @@
 <template>
-    <form>
+    <form v-on:submit.prevent>
         <div class="form-group">
             <label for="email">Description</label>
             <input
@@ -10,8 +10,8 @@
               placeholder="Entrez la description"
             />
             <button class="btn btn-primary btn-lg active mt-0"  type="button" v-on:click="generate" id="generate">Genérer un QRCode</button>
-            <div id="qr">
-                <vue-qrcode id="qrcode" :size="400" value="" v-model= "details.id_qr" />
+            <div id="qrPrint">
+              <vue-qrcode id="qrcode" value="" v-model= "id_qr"/>
             </div>
             <button class="btn btn-primary btn-lg active mt-0" @click="print">Imprimez le QR Code</button>
         </div>
@@ -19,16 +19,17 @@
 </template>
 
 <script>
-    import VueQrcode from 'vue-qrcode'
+    import VueQrcode from 'vue-qrcode';
     import { mapActions} from "vuex";
     
     export default {
+        name: "HomeEstablishment",
 
-        data(){
-            return{
+        data() {
+            return {              
+                id_qr :'',
                 details : {
-                    id_qr :'',
-                    description:''
+                    description: ''
                 }
             }
         },
@@ -40,8 +41,9 @@
 
 
             generate: function () {
-                this.sendDataQRCodeEstablishmentRequest();
-                this.id_qr = localStorage.getItem("qrCode")
+              console.log("test_date = ", this.details);
+                this.sendDataQRCodeEstablishmentRequest(this.details);
+                this.id_qr = localStorage.getItem("qrCode");
             },
             print(){
                 this.$htmlToPaper('qrPrint');
