@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <navbar />
+    <navbar v-bind:testNavBar="testNavBar" />
     <main role="main" class="container" >
       <router-view />
     </main>
@@ -12,9 +12,15 @@
 import Navbar from './components/Navbar.vue';
 
 export default {
+  data(){
+    return {
+      testNavBar : true
+    }
+  },
+
   components: {
      Navbar 
-     }
+     },
 
 };
 </script>

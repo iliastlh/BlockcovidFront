@@ -1,6 +1,5 @@
 <template>
   <div class="home mt-5">
-
     <img alt="Vue logo" src="/../../assets/BlockCovid.png">
         
     <div class="alert alert-success" role="alert" v-if="success">
@@ -14,19 +13,18 @@
       <h2 v-if="user.type_createur === 'M'">Vous etes un medecin</h2>
     <h2 v-else>Vous etes un établissement.</h2>
     </h2>
-
-
-<iframe src="http://www.google.com/actualites"
-        frameborder="0" width="300" height="250"
-        marginwidth="0" marginheight="0">
-</iframe>
-  </div>
+    <ActualityFeed />
+    </div>
 </template>
 
 <script>
+import ActualityFeed from '../components/ActualityFeed.vue';
 import { mapGetters} from "vuex";
 
 export default {
+  components: {
+ActualityFeed
+  },
   name: "Home",
 
   data() {
