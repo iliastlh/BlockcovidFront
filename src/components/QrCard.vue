@@ -37,3 +37,9 @@ export default {
     }
 }
 </script>
+
+<style scoped>
+.card-img-top {
+    flex-grow: 1;
+}
+</style>
