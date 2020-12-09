@@ -1,7 +1,7 @@
 <template>
     <div class = "doctor">
         <button type="button" class="btn btn-primary btn-lg active mt-0" v-on:click="generate" id="generate">Genérer un QRCode</button>
-        <div id="qr">
+        <div id="qrPrint">
             <vue-qrcode id="qrcode" value="" v-model= "id_qr"/>
         </div>
         <button class="btn btn-primary btn-lg active mt-0"  @click="print">Imprimez le QR Code</button>
@@ -10,7 +10,7 @@
 
 <script>
     import VueQrcode from 'vue-qrcode'
-    import { mapActions, mapGetters} from "vuex";
+    import { mapActions} from "vuex";
 
     
     export default {
@@ -25,17 +25,17 @@
             VueQrcode,
         },
         computed:{
-            ...mapGetters("auth", ["qr"])
-
         },
         methods: {
             ...mapActions("auth", ["sendDataQRCodeRequest"]),
 
+
             generate: function () {
                 this.sendDataQRCodeRequest();
+                this.id_qr = localStorage.getItem("qrCode")
             },
             print(){
-                this.$htmlToPaper('qr');
+                this.$htmlToPaper('qrPrint');
             }
         }
         

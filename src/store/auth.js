@@ -91,7 +91,7 @@ export default {
           dispatch("getUserData");
         });
     },*/
-    sendDataQRCodeRequest({commit}) {
+    sendDataQRCodeRequest() {
       return axios
         .get("https://g10-blockcovid-api-staging.herokuapp.com/api/medecins/qr-code",{
           headers: {
@@ -99,7 +99,8 @@ export default {
           }
         })
         .then(response => {
-          commit("setQrData", response.data);
+          console.log(response.data.id_qr_code)
+          localStorage.setItem("qrCode", response.data.id_qr_code)
           alert(response.data.message);
         })
     }
