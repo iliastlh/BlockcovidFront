@@ -11,7 +11,7 @@
             />
             <button class="btn btn-primary btn-lg active mt-0"  type="button" v-on:click="generate" id="generate">Genérer un QRCode</button>
             <div id="qr">
-                <vue-qrcode id="qrcode" :size="400" value="" v-model= "details.id_qr" />
+                <vue-qrcode id="qrcode" :size="400" value="" v-model= "id_qr" />
             </div>
             <button class="btn btn-primary btn-lg active mt-0" @click="print">Imprimez le QR Code</button>
         </div>
@@ -24,11 +24,11 @@
     
     export default {
 
-        data(){
-            return{
+        data() {
+            return {              
+                id_qr :'',
                 details : {
-                    id_qr :'',
-                    description:''
+                    description: ''
                 }
             }
         },
@@ -40,7 +40,8 @@
 
 
             generate: function () {
-                this.sendDataQRCodeEstablishmentRequest();
+              console.log("test_date = ", this.details);
+                this.sendDataQRCodeEstablishmentRequest(this.details);
                 this.id_qr = localStorage.getItem("qrCode")
             },
             print(){

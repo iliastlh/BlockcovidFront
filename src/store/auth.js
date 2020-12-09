@@ -112,16 +112,21 @@ export default {
           console.log(e);
       });
     },
-    sendDataQRCodeEstablishmentRequest(data) {
+    sendDataQRCodeEstablishmentRequest({commit}, data) {
+      console.log("DATA : ", data);
       return axios
-        .post("etablissements/qr-code",data ,{
+        .post("https://g10-blockcovid-api-staging.herokuapp.com/api/etablissements/qr-code", data, {
           headers: {
-            'Authorization' : 'Bearer ' + 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9nMTAtYmxvY2tjb3ZpZC1hcGktc3RhZ2luZy5oZXJva3VhcHAuY29tXC9hcGlcL2Nvbm5leGlvbiIsImlhdCI6MTYwNzQ3NjI1MiwiZXhwIjoxNjA4MDgxMDUyLCJuYmYiOjE2MDc0NzYyNTIsImp0aSI6IlZleDlGd2I2dHYwWHdlUmUiLCJzdWIiOiIwM2YyMjcxYS1jZGEyLTRkMjEtYTAxMy04NzViN2ZmZDUyMTkiLCJwcnYiOiJiMzUzODE0OWI1MzVhZjVhZThlYjFlNjdjOWIxYWIxMWUzNzY0ZGI0In0.9IRAI_KnzovYYnYGS7NDTpi3cZ6vfmR_n7NFKuXiA2Q'
+            'Authorization' : 'Bearer ' + localStorage.getItem('authToken')
           }
         })
         .then(response => {
           console.log(response.data.id_qr_code);
-          localStorage.setItem("qrCode", response.data.id_qr_code)
+          localStorage.setItem("qrCode", JSON.stringify({
+            "id_qr_code": response.data.id_qr_code,
+            "type_createur": response.data.type_createur
+          }));
+          commit("setQrData", response.data);
           alert(response.data.message);
         })
     }
