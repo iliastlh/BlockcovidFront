@@ -43,6 +43,7 @@ export default {
           authUser.id_createur_de_qr = response.data.createur_de_qr.id_createur_qr
           authUser.authToken = response.data.token.token
           authUser.email = response.data.createur_de_qr.email
+          authUser.name = response.data.info_supplementaire.nom 
           authUser.type_createur = response.data.createur_de_qr.type_createur
           localStorage.setItem("authToken", response.data.token.token)
           alert(response.data.message);

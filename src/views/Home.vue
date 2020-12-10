@@ -8,14 +8,17 @@
       <div class="alert alert-danger" role="alert" v-if="error">
           {{ error }}
       </div>
-      <div v-if="user" class="text-center">
-          <h2 style="font-size:4vh">Bonjour, {{ user.email }}!</h2>
-          <h2 style="font-size:4vh" v-if="user.type_createur === 'M'">Vous êtes un médecin.</h2>
-          <h2 style="font-size:4vh" v-else>Vous êtes un établissement.</h2>
+      <div v-if="user && user.type_createur === 'E'" class="text-center">
+          <h2 style="font-size:4vh">Bienvenue , {{ user.name }}!</h2>
+          <h4>Verifiez votre boite courriel régulierement, si un cas a été détecté dans votre établissement vous en serez informé immediatement par email.</h4>
+          <br>
+      </div>
+       <div v-if="user && user.type_createur === 'M'" class="text-center">
+          <h2 style="font-size:4vh">Bienvenue, Docteur {{ user.name }}!</h2>
       </div>
       <h2 v-if="!user">Bienvenue, veuillez vous identifier ou vous inscrire</h2> 
   </div>   
-   
+   <br>
   <CovidInfos class=""/>
 </div>
 </template>
