@@ -22,12 +22,12 @@ export default {
 
 <style scoped>
 .stat_card {
-  max-height: 14vh;
+  max-height: 15vh;
 }
 .card_text_numbers {
-  font-size: 4vh;
+  font-size: 150%;
 }
 .card_text_label {
-  font-size: 2.5vh;
+  font-size: 100%;
 }
 </style>

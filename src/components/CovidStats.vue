@@ -1,7 +1,7 @@
 <template>
     <div class="ml-3">
         <div>
-            <h2 class="text-center mb-4 mt-4">Coronavirus en Belgique</h2>
+            <h2 class="text-center">Coronavirus en Belgique</h2>
             <div class="container">
                 <div class="row">
                     <StatCard :stat="belgium.cases" text="CAS" :isBad="true"/>
@@ -16,7 +16,7 @@
             </div>
         </div>
         <div>
-            <h2 class="text-center mb-4 mt-4">Coronavirus dans le monde</h2>
+            <h2 class="text-center">Coronavirus dans le monde</h2>
             <div class="container">
                 <div class="row">
                     <StatCard :stat="worldwide.cases" text="CAS" :isBad="true"/>

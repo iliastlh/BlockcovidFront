@@ -19,7 +19,7 @@
       <h2 v-if="!user">Bienvenue, veuillez vous identifier ou vous inscrire</h2> 
   </div>   
    <br>
-  <CovidInfos class=""/>
+  <CovidInfos class="page"/>
 </div>
 </template>
 
@@ -55,6 +55,6 @@ export default {
   margin-right: 50;
 }
 .page {
-  height: 86vh;  	
+  height: 100%;  	
 }
 </style>
