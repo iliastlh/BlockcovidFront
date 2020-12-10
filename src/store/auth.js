@@ -37,7 +37,7 @@ export default {
     sendLoginRequest({ commit }, data) {
       commit("setErrors", {}, { root: true });
       return axios
-        .post("https://g10-blockcovid-api-staging.herokuapp.com/api/connexion", data)
+        .post(process.env.VUE_APP_API_URL+ "connexion", data)
         .then(response => {
           const authUser = {} // <-- objet user avec les info + token
           authUser.id_createur_de_qr = response.data.createur_de_qr.id_createur_qr
@@ -46,50 +46,36 @@ export default {
           authUser.name = response.data.info_supplementaire.nom 
           authUser.type_createur = response.data.createur_de_qr.type_createur
           localStorage.setItem("authToken", response.data.token.token)
-          alert(response.data.message);
           commit("setUserData", authUser);
         });
     },
     sendRegisterRequest({ commit }, data) {
       commit("setErrors", {}, { root: true });
       return axios
-        .post("https://g10-blockcovid-api-staging.herokuapp.com/api/medecins/inscription", data)
+        .post(process.env.VUE_APP_API_URL+"medecins/inscription", data)
         .then(response => {
           commit("setUserData", response.data.createur_de_qr);
           localStorage.setItem("authToken", response.data.token.token);
-          alert(response.data.message);
         });
     },
     sendRegisterEstablishmentRequest({ commit }, data) {
       commit("setErrors", {}, { root: true });
       return axios
-        .post("https://g10-blockcovid-api-staging.herokuapp.com/api/etablissements/inscription",data)
+        .post(process.env.VUE_APP_API_URL+"etablissements/inscription",data)
         .then(response => {
           commit("setUserData", response.data.createur_de_qr);
           localStorage.setItem("authToken", response.data.token.token);
-          alert(response.data.message);
         });
     },
     sendLogoutRequest({ commit }) {
-      //axios.post("https://g10-blockcovid-api-staging.herokuapp.com/api/deconnexion").then(() => {
         commit("setUserData", null);
         localStorage.removeItem("authToken");
-      //});
     },
-    /*sendVerifyResendRequest() {
-      return axios.get(process.env.VUE_APP_API_URL + "email/resend");
-    },
-    sendVerifyRequest({ dispatch }, hash) {
-      return axios
-        .get(process.env.VUE_APP_API_URL + "email/verify/" + hash)
-        .then(() => {
-          dispatch("getUserData");
-        });
-    },*/
+   
     sendDataQRCodeRequest({commit}) {
       console.log("QR GENERATION");
       return axios
-        .get("https://g10-blockcovid-api-staging.herokuapp.com/api/medecins/qr-code",{
+        .get(process.env.VUE_APP_API_URL+"medecins/qr-code",{
           headers: {
             'Authorization' : 'Bearer ' + localStorage.getItem('authToken')
           }
@@ -101,7 +87,6 @@ export default {
             "type_createur": response.data.type_createur
           }));
           commit("setQrData", response.data);
-          alert(response.data.message);
         }).catch((e) => {
           console.log(e);
       });
@@ -109,7 +94,7 @@ export default {
     sendDataQRCodeEstablishmentRequest({commit}, data) {
       console.log("DATA : ", data);
       return axios
-        .post("https://g10-blockcovid-api-staging.herokuapp.com/api/etablissements/qr-code", data, {
+        .post(process.env.VUE_APP_API_URL+"etablissements/qr-code", data, {
           headers: {
             'Authorization' : 'Bearer ' + localStorage.getItem('authToken')
           }

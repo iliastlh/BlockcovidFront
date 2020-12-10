@@ -18,7 +18,7 @@ export default {
 
     actions: {
         getCodes: async ({ commit }) => {
-            const response = await axios.get("https://g10-blockcovid-api-staging.herokuapp.com/api/etablissements/qr-codes");
+            const response = await axios.get(process.env.VUE_APP_API_URL+"etablissements/qr-codes");
             const qrCodes = response.data.qr_codes.map(qr => {
                 return {
                     content: JSON.stringify({
@@ -33,7 +33,7 @@ export default {
             commit('setCodes', qrCodes);
         },
         deleteCode: async ({ commit, state }, id) => {
-            await axios.delete("https://g10-blockcovid-api-staging.herokuapp.com/api/etablissements/qr-code/" + id);
+            await axios.delete(process.env.VUE_APP_API_URL+"etablissements/qr-code/" + id);
             const qrCodes = state.codes.filter(qr => qr.id !== id);
             commit('setCodes', qrCodes);
         },

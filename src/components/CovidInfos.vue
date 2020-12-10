@@ -2,6 +2,8 @@
     <div>
         <div class="align-items-center">
             <CovidStats class="page"/>
+            <br>
+            <br>
             <ActualityFeed class="page"/>
         </div>
     </div>
