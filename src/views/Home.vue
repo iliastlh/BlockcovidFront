@@ -1,7 +1,8 @@
 <template>
 <div>
   <div class="home page d-flex flex-column align-items-center justify-content-center ">
-      <img alt="BlockCovid logo" class="img-fluid" src="/../../assets/BlockCovid.png">      
+      <img alt="BlockCovid logo" class="img-fluid" src="/../../assets/BlockCovid.png">     
+       
       <div class="alert alert-success" role="alert" v-if="success">
           {{ success }}
       </div>
@@ -21,6 +22,7 @@
    <br>
   <CovidInfos class=""/>
 </div>
+
 </template>
 
 <script>

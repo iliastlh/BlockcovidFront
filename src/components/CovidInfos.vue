@@ -4,6 +4,11 @@
             <CovidStats class="page"/>
             <br>
             <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
             <ActualityFeed class="page"/>
         </div>
     </div>
