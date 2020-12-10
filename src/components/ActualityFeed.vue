@@ -1,6 +1,6 @@
 <template>
   <div id="news_feed" class="home mt-5">
-    <h2 id="title_feed"> Actualité Coronavirus en temps réel</h2>
+    <h2 id="title_feed" class="text-center mb-4">Actualité Coronavirus en temps réel</h2>
     <div id="widgetmain">
       <div id="rsswidget">
         <iframe src="http://us1.rssfeedwidget.com/getrss.php?time=1607515369410&amp;
@@ -20,14 +20,14 @@
 <style>
 #news_feed {
   height: 60vh;
-  width: 60vh;
+  width: 100%;
 }
 
 #widgetmain {
   text-align:left;
   overflow-y:auto;
   overflow-x:hidden;
-  width:60vh;
+  width:100%;
   /* background-color:#transparent; */
   border:1px solid #0F0F0F;
 }
@@ -36,10 +36,8 @@
   height:50vh;
 }
 
-#rssOutput{
-  border:1; 
-  padding:5; 
-  width:60vh; 
+#rssOutput{ 
+  width:100%; 
   height:50vh;
 }
 </style>
