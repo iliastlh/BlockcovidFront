@@ -1,5 +1,5 @@
 <template>
-    <div class=" d-flex align-items-center justify-content-center page">
+    <div class="d-flex align-items-center justify-content-center page">
       <button type="button" class="btn btn-primary btn-lg active mt-0" v-on:click="generate" id="generate">Genérer un QRCode</button>
       <div id="qrPrint">
           <vue-qrcode id="qrcode" value="" v-model= "id_qr"/>
