@@ -19,7 +19,7 @@
 
 <style>
 #news_feed {
-  height: 60vh;
+  height: 80vh;
   width: 100%;
 }
 
@@ -33,11 +33,11 @@
 }
 
 #rsswidget{
-  height:50vh;
+  height:70vh;
 }
 
 #rssOutput{ 
   width:100%; 
-  height:50vh;
+  height:70vh;
 }
 </style>

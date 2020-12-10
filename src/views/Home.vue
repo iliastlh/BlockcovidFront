@@ -9,14 +9,14 @@
           {{ error }}
       </div>
       <div v-if="user" class="text-center">
-          <h2>Bonjour, {{ user.email }}!</h2>
-          <h2 v-if="user.type_createur === 'M'">Vous êtes un médecin.</h2>
-          <h2 v-else>Vous êtes un établissement.</h2>
+          <h2 style="font-size:4vh">Bonjour, {{ user.email }}!</h2>
+          <h2 style="font-size:4vh" v-if="user.type_createur === 'M'">Vous êtes un médecin.</h2>
+          <h2 style="font-size:4vh" v-else>Vous êtes un établissement.</h2>
       </div>
       <h2 v-if="!user">Bienvenue, veuillez vous identifier ou vous inscrire</h2> 
   </div>   
    
-  <CovidInfos class="page"/>
+  <CovidInfos class=""/>
 </div>
 </template>
 
@@ -52,6 +52,6 @@ export default {
   margin-right: 50;
 }
 .page {
-  height: 80.5vh;  	
+  height: 86vh;  	
 }
 </style>

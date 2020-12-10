@@ -1,9 +1,9 @@
 <template>
     <div class="col-4 col-md-4 pl-0">
-        <div class="card mb-3 text-white" :class="isBad ? 'bg-danger' : 'bg-info'">
-            <div class="card-body text-center pt-12">
-                <h1 class="mb-0 mt-2">{{ stat }}</h1>
-                <h5>{{ text }}</h5>
+        <div class="card stat_card mb-3 text-white" :class="isBad ? 'bg-danger' : 'bg-info'">
+            <div class="card-body text-center">
+                <h1 class="mb-0 card_text_numbers">{{ stat }}</h1>
+                <h5 class="card_text_label">{{ text }}</h5>
             </div>
         </div>
     </div>
@@ -19,3 +19,15 @@ export default {
     ],
 }
 </script>
+
+<style scoped>
+.stat_card {
+  max-height: 14vh;
+}
+.card_text_numbers {
+  font-size: 4vh;
+}
+.card_text_label {
+  font-size: 2.5vh;
+}
+</style>

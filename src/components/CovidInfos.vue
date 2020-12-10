@@ -1,8 +1,8 @@
 <template>  
     <div>
         <div class="align-items-center">
-            <CovidStats/>
-            <ActualityFeed />
+            <CovidStats class="page"/>
+            <ActualityFeed class="page"/>
         </div>
     </div>
 </template>
@@ -20,5 +20,8 @@ export default {
 };
 </script>
 
-<style>
+<style scope >
+.page {
+  height: 86vh;  	
+}
 </style>

@@ -153,7 +153,7 @@ export default {
 
 <style scoped>
 .page {
-  height: 76vh;  	
+  height: 86vh;  	
 }
 .card {
   width: 100vh;
