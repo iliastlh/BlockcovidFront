@@ -24,7 +24,7 @@ export default {
   actions: {
     getUserData({ commit }) {
       axios
-        .get("https://g10-blockcovid-api-staging.herokuapp.com/api/connexion-token")
+        .get(process.env.VUE_APP_API_URL+ "connexion-token")
         .then(response => {
           console.log(response);
           commit("setUserData", response.data.createur_de_qr);
