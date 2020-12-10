@@ -35,9 +35,10 @@ Navbar {
 }
 body > div > .container {
   padding: 60px 15px 0;
-  padding-bottom: 2.5rem; 
+  padding-bottom: 2.5rem;
 }
 Footer {
+  position: fixed;
   bottom: 0;
   height: 2.5rem;  
 }
