@@ -1,11 +1,13 @@
 <template>
-  <div id="app" class="d-flex flex-fill flex-column">    
-    <Navbar v-bind:testNavBar="testNavBar"/>
-    <main role="main" class="container" >
-      <router-view />
-    </main>
-    <Footer />
-  </div>
+    <div id="app" class="d-flex flex-column">
+        <div class="content">
+            <Navbar v-bind:testNavBar="testNavBar"/>
+            <main role="main" class="container">
+                <router-view />
+            </main>
+        </div>
+        <Footer />
+    </div>
 </template>
 
 <script>
@@ -30,16 +32,19 @@ export default {
 
 <style>
 Navbar {
-  padding: 60px;
   height: 3rem;
 }
-body > div > .container {
+
+.container {
   padding: 60px 15px 0;
   padding-bottom: 2.5rem;
 }
+
+.content {
+    min-height: calc(100vh - 2.5rem);
+}
+
 Footer {
-  position: fixed;
-  bottom: 0;
-  height: 2.5rem;  
+  height: 2.5rem;
 }
 </style>
