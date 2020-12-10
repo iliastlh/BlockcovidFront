@@ -26,8 +26,13 @@ export default {
       axios
         .get(process.env.VUE_APP_API_URL+ "connexion-token")
         .then(response => {
-          console.log(response);
-          commit("setUserData", response.data.createur_de_qr);
+          const authUser = {
+            id_createur_de_qr: response.data.createur_de_qr.id_createur_qr,
+            email: response.data.createur_de_qr.email,
+            name: response.data.info_supplementaire.nom,
+            type_createur: response.data.createur_de_qr.type_createur,
+          };
+          commit("setUserData", authUser);
         })
         .catch((e) => {
             console.log(e);
