@@ -32,9 +32,10 @@ export default {
 </script>
 
 <style>
+
 footer {
-  height: 10vh;
   background: lightgray;
+  width: 100%;
 }
 
 </style>

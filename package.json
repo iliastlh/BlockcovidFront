@@ -12,6 +12,7 @@
     "core-js": "^3.6.4",
     "qrcode": "^1.4.4",
     "vue": "^2.6.11",
+    "vue-fragment": "^1.5.1",
     "vue-html-to-paper": "^1.3.1",
     "vue-qrcode": "^0.3.5",
     "vue-router": "^3.1.6",

@@ -1,8 +1,9 @@
 <template>
+  <div class="page">
     <div class="card-deck justify-content-center">
         <div v-for="code in codes" v-bind:key="code.id" class="d-flex pt-4" style="width: 18rem;">
             <QrCard :content="code.content"
-                    :title="code.title"
+                    :title="code.nom"
                     :description="code.description"
                     :id="code.id">
             </QrCard>
@@ -11,6 +12,7 @@
             Aucun code généré.
         </h4>
     </div>
+  </div>
 </template>
 
 <script>
@@ -33,3 +35,9 @@ export default {
     },
 }
 </script>
+
+<style scoped>
+.page {
+  height: 76vh;  	
+}
+</style>

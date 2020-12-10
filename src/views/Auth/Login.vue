@@ -1,5 +1,5 @@
 <template>
-  <div class="login mt-5">
+  <div class="login page d-flex align-items-center justify-content-center">
     <div class="card">
       <div class="card-header">
         Connectez-vous
@@ -47,7 +47,7 @@
 import { mapGetters, mapActions } from "vuex";
 
 export default {
-  name: "Home",
+  name: "Login",
 
   data: function() {
     return {
@@ -81,3 +81,13 @@ export default {
   }
 };
 </script>
+
+<style scoped>
+.page {
+  height: 76vh;  	
+}
+.card {
+  /* margin-top: 20vh; */
+  width: 50vh;
+}
+</style>

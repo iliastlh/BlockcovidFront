@@ -1,9 +1,10 @@
 <template>
-    <div id="app">
-        <button type="button" class="btn btn-primary btn-lg active mt-0" v-on:click="generate" id="generate">Genérer un QRCode</button>
-        <div id="qrPrint">
-            <vue-qrcode id="qrcode" value="" v-model= "id_qr"/>
-        </div>
+    <div class=" d-flex align-items-center justify-content-center page">
+      <button type="button" class="btn btn-primary btn-lg active mt-0" v-on:click="generate" id="generate">Genérer un QRCode</button>
+      <div id="qrPrint">
+          <vue-qrcode id="qrcode" value="" v-model= "id_qr"/>
+      </div>
+      <button class="btn btn-primary btn-lg active mt-0"  @click="print">Imprimer le QR Code</button>
     </div>
 </template>
 
@@ -14,21 +15,30 @@
     export default {
         data(){
             return{
-                id_qr :''
+                id_qr :'',
             }
         },
         components: {
             VueQrcode,
         },
         methods: {
-            ...mapActions("auth", ["sendDataQRCodeRequest"]),
+          ...mapActions("auth", ["sendDataQRCodeRequest"]),          
 
+          print(){
+              this.$htmlToPaper('qrPrint');
+          },
 
-            generate: function () {
-                this.sendDataQRCodeRequest();
-                this.id_qr = localStorage.getItem("qrCode");
-            },
+          generate: function () {
+              this.sendDataQRCodeRequest();
+              this.id_qr = localStorage.getItem("qrCode");
+          },
         }
 
     }
 </script>
+
+<style>
+.page {
+  height: 76vh;  	
+}
+</style>

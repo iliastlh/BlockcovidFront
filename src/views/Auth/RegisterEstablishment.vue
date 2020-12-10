@@ -1,5 +1,5 @@
 <template>
-  <div class="login mt-5">
+  <div class="login page d-flex align-items-center justify-content-center">
     <div class="card">
       <div class="card-header">
         Inscrivez-vous
@@ -7,33 +7,50 @@
       <div class="card-body">
         <form>
           <div class="form-group">
-            <label for="email">Nom légal de votre établissement</label>
+            <label for="name">Nom légal de votre établissement</label>
             <input
               type="text"
               class="form-control"
               :class="{ 'is-invalid': errors.nom }"
               id="name"
               v-model="details.nom"
-              placeholder="Entrer le nom de votre établissement"
+              placeholder="Entrez le nom de votre établissement"
             />
             <div class="invalid-feedback" v-if="errors.nom">
               {{ errors.nom[0] }}
             </div>
           </div>
+
           <div class="form-group">
-            <label for="email">Telephone</label>
+            <label for="adresse">Adresse de l'établissement</label>
+            <input
+              type="email"
+              class="form-control"
+              :class="{ 'is-invalid': errors.adresse }"
+              id="adresse"
+              v-model="details.adresse"
+              placeholder="Entrez votre adresse"
+            />
+            <div class="invalid-feedback" v-if="errors.adresse">
+              {{ errors.adresse[0] }}
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="telephone">Numéro de téléphone</label>
             <input
               type="text"
               class="form-control"
-              :class="{ 'is-invalid': errors.telephone }"
-              id="name"
+              :class="{ 'is-invalid': errors.numero }"
+              id="telephone"
               v-model="details.numero"
-              placeholder="entrer votre no de telephone"
+              placeholder="Entrez votre numéro de téléphone"
             />
-            <div class="invalid-feedback" v-if="errors.telephone">
-              {{ errors.name[0] }}
+            <div class="invalid-feedback" v-if="errors.numero">
+              {{ errors.numero[0] }}
             </div>
           </div>
+
           <div class="form-group">
             <label for="email">Email</label>
             <input
@@ -42,50 +59,49 @@
               :class="{ 'is-invalid': errors.email }"
               id="email"
               v-model="details.email"
-              placeholder="Entrer votre email"
+              placeholder="Entrez votre email"
             />
             <div class="invalid-feedback" v-if="errors.email">
               {{ errors.email[0] }}
             </div>
           </div>
-           <div class="form-group">
-            <label for="email">Adresse de l'établissement</label>
-            <input
-              type="email"
-              class="form-control"
-              :class="{ 'is-invalid': errors.adresse }"
-              id="email"
-              v-model="details.adresse"
-              placeholder="Entrer votre adresse"
-            />
-            <div class="invalid-feedback" v-if="errors.adresse">
-              {{ errors.adresse[0] }}
+
+          <div class="form-row">
+            <div class="col">
+              <div class="form-group">
+                <label for="password">Mot de passe</label>
+                <input
+                  type="password"
+                  class="form-control"
+                  :class="{ 'is-invalid': errors.mot_de_passe }"
+                  id="password"
+                  v-model="details.mot_de_passe"
+                  placeholder="Entrez un mot de passe"
+                />
+                <div class="invalid-feedback" v-if="errors.mot_de_passe">
+                  {{ errors.mot_de_passe[0] }}
+                </div>
+              </div>
+            </div>
+
+            <div class="col">
+              <div class="form-group">
+                <label for="password_confirmation">Confirmation du mot de passe</label>
+                <input
+                  type="password"
+                  class="form-control"
+                  :class="{ 'is-invalid': errors.mot_de_passe_confirmation }"
+                  id="password_confirmation"
+                  v-model="details.mot_de_passe_confirmation"
+                  placeholder="Entrez à nouveau le mot de passe"
+                />
+                <div class="invalid-feedback" v-if="errors.mot_de_passe_confirmation">
+                  {{ errors.mot_de_passe_confirmation[0] }}
+                </div>
+              </div>
             </div>
           </div>
-          <div class="form-group">
-            <label for="password">Mot de passe</label>
-            <input
-              type="password"
-              class="form-control"
-              :class="{ 'is-invalid': errors.motDePasse }"
-              id="password"
-              v-model="details.mot_de_passe"
-              placeholder="Password"
-            />
-            <div class="invalid-feedback" v-if="errors.password">
-              {{ errors.password[0] }}
-            </div>
-          </div>
-          <div class="form-group">
-            <label for="password_confirmation">Confirmation du mot de passe</label>
-            <input
-              type="password"
-              class="form-control"
-              id="password_confirmation"
-              v-model="details.mot_de_passe_confirmation"
-              placeholder="Confirm password"
-            />
-          </div>
+
           <button type="button" @click="register" class="btn btn-primary">
             Inscription
           </button>
@@ -134,3 +150,12 @@ export default {
   }
 };
 </script>
+
+<style scoped>
+.page {
+  height: 76vh;  	
+}
+.card {
+  width: 100vh;
+}
+</style>

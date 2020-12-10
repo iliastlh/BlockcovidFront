@@ -1,7 +1,6 @@
 <template>
-    <div id = "app">
-        <QrCodeGeneration />
-        <button class="btn btn-primary btn-lg active mt-0"  @click="print">Imprimez le QR Code</button>
+    <div>
+      <QrCodeGeneration />
     </div>
 </template>
 
@@ -14,17 +13,12 @@ import QrCodeGeneration from '../../components/QrCodeGeneration';
 
         data(){
             return{
-                id_qr :''
             }
         },
         components: {
             QrCodeGeneration,
         },
         methods: {
-
-            print(){
-                this.$htmlToPaper('qrPrint');
-            }
         }
         
     }

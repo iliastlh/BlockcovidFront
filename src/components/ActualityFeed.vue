@@ -33,14 +33,13 @@
 }
 
 #rsswidget{
-  height:60vh;
+  height:50vh;
 }
 
 #rssOutput{
   border:1; 
   padding:5; 
-  margin:10; 
   width:60vh; 
-  height:60vh;
+  height:50vh;
 }
 </style>
