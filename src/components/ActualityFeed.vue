@@ -19,7 +19,7 @@
 
 <style>
 #news_feed {
-  height: 80vh;
+  height: 100%;
   width: 100%;
 }
 

@@ -45,6 +45,6 @@ export default {
 
 <style scoped>
 .page {
-  height: 76vh;
+  height: 100%;
 }
 </style>

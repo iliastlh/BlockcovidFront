@@ -36,7 +36,7 @@ Navbar {
 }
 
 .container {
-  padding: 60px 15px 0;
+  padding: 45px 15px 0;
   padding-bottom: 2.5rem;
 }
 
