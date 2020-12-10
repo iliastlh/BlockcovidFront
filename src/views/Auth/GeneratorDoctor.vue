@@ -9,7 +9,7 @@ import QrCodeGeneration from '../../components/QrCodeGeneration';
     
     export default {
 
-        name: "HomeDoctor",
+        name: "GeneratorDoctor",
 
         data(){
             return{

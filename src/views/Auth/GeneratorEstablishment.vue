@@ -9,7 +9,7 @@
 
     
     export default {
-        name: "HomeEstablishment",
+        name: "GeneratorEstablishment",
 
         data() {
             return {  

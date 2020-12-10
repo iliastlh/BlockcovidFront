@@ -25,11 +25,11 @@
             <router-link class="nav-link" to="/registerEstablishment">Inscription Établissement</router-link>
           </li>
           <li class="nav-item" v-if="user">
-            <router-link v-if="user.type_createur === 'M'" class="nav-link" to="/homeDoctor">Générer QR Code</router-link>
-            <router-link v-if="user.type_createur === 'E'" class="nav-link" to="/homeEstablishment">Générer QR Code</router-link>
+            <router-link v-if="user.type_createur === 'M'" class="nav-link" to="/generatorDoctor">Générer QR Code</router-link>
+            <router-link v-if="user.type_createur === 'E'" class="nav-link" to="/generatorEstablishment">Générer QR Code</router-link>
           </li>
           <li class="nav-item" v-if="user && user.type_createur === 'E'">
-            <router-link class="nav-link" to="/homeEstablishementCodes">Codes Générés</router-link>
+            <router-link class="nav-link" to="/listEstablishementCodes">Codes Générés</router-link>
           </li>
           <li class="nav-item">
             <router-link class="nav-link" to="/coronaAdvice">Informations Coronavirus</router-link>

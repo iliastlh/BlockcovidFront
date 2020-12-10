@@ -17,7 +17,7 @@
                 id="description"
                 v-model="details.description"
                 placeholder="Entrez la description du lieu"
-                />
+                /><br>
                 <button class="btn btn-primary btn-lg active mt-0"  type="button" v-on:click="generate_esta" id="generate">Générer un QRCode</button>
                 <div id="qrPrint">
                     <vue-qrcode id="qrcode" value="" v-model= "id_qr"/>

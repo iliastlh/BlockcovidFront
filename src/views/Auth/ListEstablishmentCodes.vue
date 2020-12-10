@@ -20,7 +20,7 @@ import { mapActions, mapGetters } from 'vuex';
 import QrCard from '@/components/QrCard';
 
 export default {
-    name: 'HomeEstablishmentCodes',
+    name: 'ListEstablishmentCodes',
     components: {
         QrCard,
     },
