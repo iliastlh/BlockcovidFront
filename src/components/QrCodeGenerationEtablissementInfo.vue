@@ -59,9 +59,9 @@ export default {
     print() {
       this.$htmlToPaper("qrPrint");
     },
-    generate_esta: function() {
+    generate_esta: async function() {
+      await this.sendDataQRCodeEstablishmentRequest(this.details);
       this.id_qr = localStorage.getItem("qrCode");
-      this.sendDataQRCodeEstablishmentRequest(this.details);
     }
   }
 };

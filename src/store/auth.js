@@ -91,42 +91,43 @@ export default {
         localStorage.removeItem("authToken");
     },
    
-    sendDataQRCodeRequest({commit}) {
+    async sendDataQRCodeRequest({commit}) {
       console.log("QR GENERATION");
-      return axios
-        .get(process.env.VUE_APP_API_URL+"medecins/qr-code",{
-          headers: {
-            'Authorization' : 'Bearer ' + localStorage.getItem('authToken')
-          }
-        })
-        .then(response => {
-          console.log(response.data);
-          localStorage.setItem("qrCode", JSON.stringify({
-            "id_qr_code": response.data.id_qr_code,
-            "type_createur": response.data.type_createur
-          }));
-          commit("setQrData", response.data);
-        }).catch((e) => {
-          console.log(e);
-      });
+        try {
+            const response = await axios
+                .get(process.env.VUE_APP_API_URL+"medecins/qr-code",{
+                    headers: {
+                        'Authorization' : 'Bearer ' + localStorage.getItem('authToken')
+                    }
+                });
+            console.log(response.data);
+            localStorage.setItem("qrCode", JSON.stringify({
+                "id_qr_code": response.data.id_qr_code,
+                "type_createur": response.data.type_createur
+            }));
+            commit("setQrData", response.data);
+        } catch(e) {
+            console.log(e);
+        }
     },
-    sendDataQRCodeEstablishmentRequest({commit}, data) {
+    async sendDataQRCodeEstablishmentRequest({commit}, data) {
       console.log("DATA : ", data);
-      return axios
-        .post(process.env.VUE_APP_API_URL+"etablissements/qr-code", data, {
-          headers: {
-            'Authorization' : 'Bearer ' + localStorage.getItem('authToken')
-          }
-        })
-        .then(response => {
+      try {
+          const response = await axios
+            .post(process.env.VUE_APP_API_URL+"etablissements/qr-code", data, {
+                headers: {
+                'Authorization' : 'Bearer ' + localStorage.getItem('authToken')
+                }
+            });
           console.log(response.data.id_qr_code);
           localStorage.setItem("qrCode", JSON.stringify({
             "id_qr_code": response.data.id_qr_code,
             "type_createur": response.data.type_createur
           }));
           commit("setQrData", response.data);
-          alert(response.data.message);
-        })
+      } catch(e) {
+          console.log(e);
+      }
     }
   }
 };

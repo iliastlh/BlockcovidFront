@@ -28,9 +28,9 @@
               this.$htmlToPaper('qrPrint');
           },
 
-          generate: function () {
+          generate: async function () {
+              await this.sendDataQRCodeRequest();
               this.id_qr = localStorage.getItem("qrCode");
-              this.sendDataQRCodeRequest();
           },
         }
 
