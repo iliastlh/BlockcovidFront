@@ -82,7 +82,6 @@ export default {
     ...mapActions("auth", ["sendLogoutRequest", "getUserData"]),
 
     logout() {
-        console.log("login out");
       this.sendLogoutRequest();
       this.$router.push("/");
     }

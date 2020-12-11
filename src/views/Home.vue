@@ -11,13 +11,13 @@
       </div>
       <div v-if="user && user.type_createur === 'E'" class="text-center">
           <h2 style="font-size:4vh">Bienvenue , {{ user.name }}!</h2>
-          <h4>Verifiez votre boite courriel régulierement, si un cas a été détecté dans votre établissement vous en serez informé immediatement par email.</h4>
+          <h4>Vérifiez votre boite courriel régulierement, si un cas a été détecté dans votre établissement vous en serez informé immédiatement par email.</h4>
           <br>
       </div>
        <div v-if="user && user.type_createur === 'M'" class="text-center">
           <h2 style="font-size:4vh">Bienvenue, Docteur {{ user.name }}!</h2>
       </div>
-      <h2 v-if="!user">Bienvenue, veuillez vous identifier ou vous inscrire</h2> 
+      <h2 v-if="!user">Bienvenue, veuillez vous identifier ou vous inscrire.</h2> 
   </div>   
    <br>
   <CovidInfos class="page"/>
@@ -45,10 +45,6 @@ export default {
   computed: {
     ...mapGetters("auth", ["user"])
   },
-
-  methods: {
-    
-  }
 };
 </script>
 

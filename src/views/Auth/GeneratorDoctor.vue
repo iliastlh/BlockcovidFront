@@ -6,24 +6,10 @@
 
 <script>
 import QrCodeGeneration from '../../components/QrCodeGeneration';
-    
-    export default {
-
-        name: "GeneratorDoctor",
-
-        data(){
-            return{
-            }
-        },
-        components: {
-            QrCodeGeneration,
-        },
-        methods: {
-        }
-        
-    }
+export default {
+    name: "GeneratorDoctor",
+    components: {
+        QrCodeGeneration,
+    },
+}
 </script>
-
-<style scoped>
-
-</style>

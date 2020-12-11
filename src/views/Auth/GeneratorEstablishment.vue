@@ -9,13 +9,8 @@ import QrCodeGenerationEtablissementInfo from "@/components/QrCodeGenerationEtab
 
 export default {
   name: "GeneratorEstablishment",
-  data() {
-    return {};
-  },
   components: {
     QrCodeGenerationEtablissementInfo
   }
 };
 </script>
-
-<style scoped></style>

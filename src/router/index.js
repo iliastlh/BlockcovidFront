@@ -53,26 +53,26 @@ const routes = [
     name: "GeneratorDoctor",
     beforeEnter: auth,
     component: () =>
-      import(/* webpackChunkName: "homeDoctor" */ "../views/Auth/GeneratorDoctor.vue")
+      import(/* webpackChunkName: "generatorDoctor" */ "../views/Auth/GeneratorDoctor.vue")
   },
   {
     path: "/generatorEstablishment",
     name: "GeneratorEstablishment",
     beforeEnter: auth,
     component: () =>
-      import(/* webpackChunkName: "homeEstablishment" */ "../views/Auth/GeneratorEstablishment.vue")
+      import(/* webpackChunkName: "generatorEstablishment" */ "../views/Auth/GeneratorEstablishment.vue")
   },
   {
     path: "/listEstablishementCodes",
     name: "ListEstablishmentCodes",
     beforeEnter: auth,
     component: () =>
-    import(/* webpackChunkName: "homeEstablishmentCodes" */ "../views/Auth/ListEstablishmentCodes.vue")
+    import(/* webpackChunkName: "listEstablishmentCodes" */ "../views/Auth/ListEstablishmentCodes.vue")
   },{
     path: "/coronaAdvice",
     name: "CoronaAdvice",
     component: () =>
-      import(/* webpackChunkName: "login" */ "../views/Auth/CoronaAdvice.vue")
+      import(/* webpackChunkName: "coronaAdvice" */ "../views/Auth/CoronaAdvice.vue")
   },
 ];
 
