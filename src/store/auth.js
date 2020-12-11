@@ -27,7 +27,7 @@ export default {
         .get(process.env.VUE_APP_API_URL+ "connexion-token")
         .then(response => {
           const authUser = {
-            id_createur_de_qr: response.data.createur_de_qr.id_createur_qr,
+            id_createur_de_qr: response.data.createur_de_qr.id_createur_de_qr,
             email: response.data.createur_de_qr.email,
             name: response.data.info_supplementaire.nom,
             type_createur: response.data.createur_de_qr.type_createur,
@@ -45,7 +45,7 @@ export default {
         .post(process.env.VUE_APP_API_URL+ "connexion", data)
         .then(response => {
           const authUser = {} // <-- objet user avec les info + token
-          authUser.id_createur_de_qr = response.data.createur_de_qr.id_createur_qr
+          authUser.id_createur_de_qr = response.data.createur_de_qr.id_createur_de_qr
           authUser.authToken = response.data.token.token
           authUser.email = response.data.createur_de_qr.email
           authUser.name = response.data.info_supplementaire.nom 
@@ -59,7 +59,14 @@ export default {
       return axios
         .post(process.env.VUE_APP_API_URL+"medecins/inscription", data)
         .then(response => {
-          commit("setUserData", response.data.createur_de_qr);
+          const authUser = {
+            id_createur_de_qr: response.data.createur_de_qr.id_createur_de_qr,
+            authToken: response.data.token.token,
+            email: response.data.createur_de_qr.email,
+            name: response.data.info_supplementaire.nom,
+            type_createur: response.data.createur_de_qr.type_createur,
+          };
+          commit("setUserData", authUser);
           localStorage.setItem("authToken", response.data.token.token);
         });
     },
@@ -68,7 +75,14 @@ export default {
       return axios
         .post(process.env.VUE_APP_API_URL+"etablissements/inscription",data)
         .then(response => {
-          commit("setUserData", response.data.createur_de_qr);
+          const authUser = {
+            id_createur_de_qr: response.data.createur_de_qr.id_createur_de_qr,
+            authToken: response.data.token.token,
+            email: response.data.createur_de_qr.email,
+            name: response.data.info_supplementaire.nom,
+            type_createur: response.data.createur_de_qr.type_createur,
+          };
+          commit("setUserData", authUser);
           localStorage.setItem("authToken", response.data.token.token);
         });
     },
