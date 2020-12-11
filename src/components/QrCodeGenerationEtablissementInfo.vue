@@ -60,8 +60,8 @@ export default {
       this.$htmlToPaper("qrPrint");
     },
     generate_esta: function() {
-      this.sendDataQRCodeEstablishmentRequest(this.details);
       this.id_qr = localStorage.getItem("qrCode");
+      this.sendDataQRCodeEstablishmentRequest(this.details);
     }
   }
 };

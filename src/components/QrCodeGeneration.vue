@@ -29,8 +29,8 @@
           },
 
           generate: function () {
-              this.sendDataQRCodeRequest();
               this.id_qr = localStorage.getItem("qrCode");
+              this.sendDataQRCodeRequest();
           },
         }
 
